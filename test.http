@@ -14,3 +14,48 @@ Content-Type: application/json
 ### Get Account by API Key
 GET {{baseUrl}}/accounts
 X-API-Key: {{apiKey}}
+
+
+### Create new Invoice
+POST {{baseUrl}}/invoice
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "amount": 100,
+  "description": "Test Invoice",
+  "payment_type": "credit_card",
+  "card_number": "1234567890123456",
+  "cvv": "123",
+  "expire_month": 1,
+  "expire_year": 2026,
+  "cardholder_name": "John Doe"
+}
+
+### Get Invoice by ID
+GET {{baseUrl}}/invoice/{{createInvoice.response.body.id}}
+X-API-Key: {{apiKey}}
+
+### Create new Invoice above 10.000
+POST {{baseUrl}}/invoice
+X-API-Key: {{apiKey}}
+Content-Type: application/json
+
+{
+  "amount": 15000,
+  "description": "Test Invoice",
+  "payment_type": "credit_card",
+  "card_number": "1234567890123456",
+  "cvv": "123",
+  "expire_month": 1,
+  "expire_year": 2026,
+  "cardholder_name": "John Doe"
+}
+
+
+### Get Invoice by Account
+GET {{baseUrl}}/invoice
+X-API-Key: {{apiKey}}
+
+
+
